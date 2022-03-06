@@ -1,5 +1,5 @@
 {
-    "name": "codus/fns-api",
+    "name": "aperture/fns-api",
     "description": "PHP API для проверки и получения фискальных чеков через официальное API ФНС России.",
     "type": "library",
     "license": "MIT",
