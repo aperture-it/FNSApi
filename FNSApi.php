@@ -39,6 +39,8 @@ final class FNSApi
             $response = $client->__soapCall('GetMessage', [$message]);
             $authResponse = new SimpleXMLElement($response->Message->any);
             $result = $authResponse->children('ns2', true)->Result;
+            if (!$result->Token)
+                abort(503, 'Сервис временно недоступен');
             $this->temporaryToken = TemporaryToken::create($result->Token->__toString(), Carbon::createFromTimeString($result->ExpireTime->__toString()));
         }
         return $this->temporaryToken;
